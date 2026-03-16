@@ -1,0 +1,26 @@
+PRESENTACION HUNDIR LA FLOTA.
+
+ He desarrollado una versión del juego Hundir la flota en Python, donde un jugador compite contra la máquina en un tablero de 10x10.
+
+“Cada turno el jugador introduce coordenadas y el programa comprueba si hay un barco o agua. El tablero se actualiza con X si hay impacto o O si es agua.”
+
+ Estructura del proyecto:
+
+ Explica cada uno:
+
+ 1)main.py → controla el flujo del juego y los turnos
+
+2)tablero.py → crea y muestra el tablero
+
+3)jugador.py → gestiona la entrada de coordenadas del jugador
+
+3)disparo.py → comprueba si el disparo es agua o impacto
+
+4)vidas.py → comprueba si quedan barcos en el tablero
+
+ El juego funciona con un bucle while que gestiona los turnos hasta que uno de los jugadores se queda sin barcos.”
+
+ Explica el flujo:
+ crear tableros
+ turno jugador
+turno máquina

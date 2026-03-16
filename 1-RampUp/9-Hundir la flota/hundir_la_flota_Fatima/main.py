@@ -54,7 +54,7 @@ while True: #bucle del juego, se repite hasta que termine.
         print(" La maquina ha ganado :(")
         break ## Termina el bucle y el juego.
     if not quedan_barcos(tablero_maquina):
-        print("jugadora Fatima ha ganado!!")
+        print("jugadora Fatima ha ganado!!")    
         break  
     
 #Mostrar tablero del jugador y de la maquina con los resultados finales.  
