@@ -1,0 +1,22 @@
+🔥 OPCIÓN 1 (MUY RECOMENDADA): Precio de vivienda vs características
+🧠 Tema
+
+Análisis de precios de vivienda en España
+
+💡 Hipótesis
+
+“El precio de la vivienda está fuertemente influenciado por la ubicación y el tamaño, pero también por factores como servicios cercanos o tipo de vivienda.”
+
+📊 Datos
+API de Idealista
+INE (datos de renta por zona)
+OpenStreetMap o Google Maps (opcional para servicios cercanos)
+❓ Qué puedes analizar
+Precio vs metros cuadrados
+Precio vs ciudad/zona
+Precio vs número de habitaciones
+Precio vs renta media de la zona
+🚀 Por qué es buena
+Súper entendible
+Visualmente potente
+Muy típica en data science (les encanta a los profes)
