@@ -1,0 +1,136 @@
+--1. Obtén los clientes de brasil
+SELECT * 
+FROM customers
+WHERE country = "Brazil";
+
+--2. Obtén los empleados que son agentes de ventas
+SELECT*
+FROM employees
+WHERE title = "Sales Support Agent";
+
+3. Obtén las canciones de ‘AC/DC’
+SELECT *
+FROM tracks
+WHERE composer = "AC/DC";
+
+--4. Obtén los campos de los clientes que no sean de USA: Nombre completo, ID, País
+SELECT FirstName, LastName, CustomerID, Country
+FROM customers
+WHERE country <> "USA";  --counry <>"USA" PARA INDICAR QUE ME COJA TODOS LOS PAISES DIFERENTE DE USA.
+
+
+--5. Obtén los empleados que son agentes de ventas: Nombre completo, Dirección(Ciudad, Estado, País) y email
+
+SELECT FirstName, LastName, City, State, Country, email
+FROM employees
+WHERE title = "Sales Support Agent";
+
+--6. Obtén una lista con los países no repetidos a los que se han emitido facturas
+SELECT DISTINCT BillingCountry--DISTINCT ME DEVUELVE VALORES UNICOS--
+FROM invoices
+
+--7. Obtén una lista con los estados de USA no repetidos de donde son los clientes ycuántos clientes en cada uno--
+SELECT DISTINCT State, count(CustomerId) AS N_clientes
+FROM customers
+WHERE Country = "USA"
+GROUP BY state --los clientes por state--
+
+--8. Cuántos artículos tiene la factura 37
+
+SELECT invoiceId, SUM(quantity) as N_art
+FROM invoice_items
+WHERE invoiceID = 37
+
+
+--9. Cuántas canciones tiene ‘AC/DC’
+--“Busco AC/DC → veo sus álbumes → veo sus canciones → las cuento”
+SELECT artists.Name as Artista, count(tracks.TrackId) as Total_canciones --RENOMBRO LAS COLUMNAS PARA TENER INFORMACION CLARA.
+FROM artists
+INNER JOIN albums ON artists.ArtistId = albums.ArtistId  --Traigo sus álbumes
+INNER JOIN tracks ON tracks.AlbumId = albums.AlbumId  --Traigo las canciones de esos álbumes
+WHERE artists.name = 'AC/DC';  --Filtro solo ese artista
+
+--10. Cuántos artículos tiene cada factura
+
+SELECT invoiceid, Count(invoice_items.quantity)
+FROM invoice_items
+GROUP BY Invoiceid;
+
+
+--11. Cuántas facturas hay de cada país
+SELECT BillingCountry, count(invoiceId)
+FROM invoices
+GROUP BY BillingCountry;
+
+--12. Cuántas facturas ha habido en 2009 y 2011
+
+SELECT strftime('%Y', invoicedate) AS Año, count(invoiceId) --strftime("%Y", invoicedate) me saca el año de la fecha.
+FROM invoices
+WHERE Año in ('2009', '2011')
+GROUP BY Año
+
+--13. Cuántas facturas ha habido entre 2009 y 2011
+SELECT SUM(N_FACT) --total de facturas entre 2009 y 2011
+FROM
+(
+SELECT strftime('%Y', invoicedate) AS Año, count(invoiceId) AS N_FACT--strftime("%Y", invoicedate) me saca el año de la fecha.
+FROM invoices
+WHERE strftime('%Y', InvoiceDate) BETWEEN '2009' AND '2011'
+GROUP BY Año)
+
+--14. Cuántas clientes hay de España y de Brasil.
+SELECT country, COUNT(Customerid)
+FROM customers
+WHERE country IN ('Spain','Brazil') --filtra solo clientes de Espana o Brasil
+GROUP BY country;
+
+--15. Obtén las canciones que su título empieza por ‘You’
+SELECT Name AS canciones
+FROM tracks
+WHERE Name like 'You%'; --empieza con "You", % es cualquier secuencia de caracteres después de "You"
+
+
+---SEGUNDAPARTE--
+--1. Facturas de Clientes de Brasil, Nombre del cliente, Id de factura, fecha de la factura y el país de la factura
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
